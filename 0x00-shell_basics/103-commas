@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1Ap | awk '{printf "%s,",$0}' | sed 's/,$/\n/'
+ls -1Apd .[^.]* * | awk '{printf "%s,",$0}' | sed 's/,$/\n/'
