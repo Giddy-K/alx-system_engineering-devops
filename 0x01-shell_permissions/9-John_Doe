@@ -1,4 +1,2 @@
 #!/bin/bash
-chmod 753 hello
-chown julien:julien hello
-
+chmod 1753 hello
