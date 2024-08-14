@@ -1,30 +1,20 @@
 #!/usr/bin/python3
 """
-Script to print the titles of the top 10 hot posts on a given Reddit subreddit.
+    Uses reddit API to get 10 hot posts
 """
-
 import requests
 
+
 def top_ten(subreddit):
-    """
-    Print the titles of the first 10 hot posts listed for a given subreddit.
-    If the subreddit is invalid, print None.
-    """
-    url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
-    headers = {"User-Agent": "Mozilla/5.0 (compatible; RedditAPI/0.1)"}
-    params = {"limit": 10}
+    """Get 10 hot posts"""
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
+    headers = {'user-agent': 'request'}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-    try:
-        response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+    if response.status_code != 200:
+        print(None)
+        return
 
-        if response.status_code == 200:
-            results = response.json().get("data")
-            if results:
-                for post in results.get("children", []):
-                    print(post.get("data", {}).get("title"))
-            else:
-                print("None")
-        else:
-            print("None")
-    except requests.RequestException:
-        print("None")
+    data = response.json().get("data").get("children")
+    top_10_posts = "\n".join(post.get("data").get("title") for post in data)
+    print(top_10_posts)
