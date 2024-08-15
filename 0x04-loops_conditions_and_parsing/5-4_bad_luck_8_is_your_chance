@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times
-# Print i as the 9th item
 
 var1="Best School"
-var2="Bad luck"
-var3="Good luck"
+var2="bad luck"
+var3="good luck"
 i="1"
-
 while [ $i -lt 11 ]; do
 	if [ $i -eq 4 ]; then
 		echo "$var2"
