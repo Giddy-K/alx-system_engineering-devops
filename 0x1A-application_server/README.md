@@ -26,6 +26,6 @@ Copy code
 Configure Nginx to proxy requests
 Try it out! Make requests to localhost
 Author
-SABRALLAH YOUSSEF THE GREATEST OF ALL TIMES
+Gideon Kipamet
 
 Let me know if you would like me to expand or modify the README further. I tried to cover the key points concisely.
